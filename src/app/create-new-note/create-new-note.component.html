@@ -1,0 +1,38 @@
+<form [formGroup]="createNewNote" class="create-new-note" *ngIf="viewForm">
+  <h2>Создание новой заметки</h2>
+  <div class="form-control header">
+    <label for="header" class="form-control__header"
+      >Введите заголовок заметки</label
+    >
+    <input type="text" id="header" formControlName="header" />
+    <div
+      class="alert"
+      *ngIf="
+        createNewNote.controls['header'].invalid &&
+        createNewNote.controls['header'].touched
+      "
+    >
+      Поле должно быть заполнено
+    </div>
+  </div>
+  <div class="form-control header">
+    <label for="text-note" class="form-control__header"
+      >Введите текст заметки</label
+    >
+    <textarea id="text-note" rows="5" formControlName="text"></textarea>
+    <div
+      class="alert"
+      *ngIf="
+        createNewNote.controls['text'].invalid &&
+        createNewNote.controls['text'].touched
+      "
+    >
+      Поле должно быть заполнено
+    </div>
+  </div>
+
+  <div class="save-cancel">
+    <button class="save-cancel__save" (click)="saveNote()">Сохранить</button>
+    <button class="save-cancel__cancel" (click)="closeForm()">Отмена</button>
+  </div>
+</form>

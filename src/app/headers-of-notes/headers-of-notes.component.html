@@ -1,0 +1,11 @@
+<button class="add-note" (click)="showHideForm()">+</button>
+
+<ul class="headers-of-notes">
+  <li
+    *ngFor="let note of getHeadersOfNotes"
+    class="header-of-note"
+    (click)="selectNote(note.id)"
+  >
+    {{ note.header }}
+  </li>
+</ul>
